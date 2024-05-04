@@ -33,6 +33,18 @@ public class Java {
         cuentaBancaria.tipoDeCuenta = "Nomina";
         cuentaBancaria.saldo = 23_500;
         System.out.println("Saldo de Juan = " + cuentaBancaria.saldo);
+        /* ------------------------------------------------------------ */
+        CuentaBancaria libro = new CuentaBancaria();
+        libro.codigo = 1;
+        libro.libro = "Harry Potter y el cáliz de fuego";
+        libro.autor = "Joanne K. Rowling";
+        libro.publicacion = "8 de julio de 2000";
+        System.out.println(libro.toString());
+        libro.setAutor("null");
+        libro.setCodigo(0);
+        libro.setLibro("null");
+        libro.setPublicacionString("null");
+        System.out.println(libro.toString());
         //#endregion
     }
 }
