@@ -1,5 +1,4 @@
 # Java
-Claro, puedo darte una descripción básica de los atributos y métodos que podrías incluir en cada clase para un sistema de gestión de una clínica privada:
 
 1. **Paciente**:
    - Atributos:
@@ -89,5 +88,3 @@ Claro, puedo darte una descripción básica de los atributos y métodos que podr
      - Método para agregar un nuevo horario de trabajo para un médico
      - Método para verificar la disponibilidad de un médico en un horario específico
      - Método para actualizar el horario de un médico
-
-Estos son solo ejemplos de los atributos y métodos que podrías incluir en cada clase. Dependiendo de los requisitos específicos de tu sistema, es posible que necesites agregar más atributos o métodos para cubrir todas las funcionalidades necesarias.
