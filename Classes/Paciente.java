@@ -90,6 +90,3 @@ public class Paciente {
     }
     //#endregion
 }
-/* 
-     - Método para programar una cita
-    */
