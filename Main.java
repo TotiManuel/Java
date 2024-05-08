@@ -14,7 +14,7 @@ public class Main {
         prueba.programarCita(fechaCita, "Dr. García", "Control médico");
     }
     public static void main(String[] args) {
-        //prueba
+        //#region prueba
         String Nombre = "Julian Manuel";
         String Apellido = "Mandaio";
         String DNI = "41.323.167";
@@ -23,7 +23,7 @@ public class Main {
         LocalDate FechaNacimiento = LocalDate.of(1998, 8, 29);
         String Alergias = "No";
         String CondicionesMedicasPreexistentes = "No";
-        //fin prueba
+        //#endregion
         Main main = new Main();
         Paciente prueba = main.CrearPaciente(Nombre, Apellido, DNI, Direccion, NumTelefono, FechaNacimiento, Alergias, CondicionesMedicasPreexistentes);
         main.ProgramarCita(prueba);
