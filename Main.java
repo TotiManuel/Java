@@ -3,6 +3,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import Classes.Paciente;
 import Classes.Medico;
+import Classes.Turno;
 
 public class Main {
     public static Paciente CrearPaciente(String Nombre, String Apellido, String DNI, String Direccion, String NumTelefono, LocalDate FechaNacimiento, String Alergias, String CondicionesMedicasPreexistentes){
