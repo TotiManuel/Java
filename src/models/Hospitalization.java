@@ -1,12 +1,12 @@
 package src.models;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Hospitalization {
     private Patient patient;
-    private Date startDate;
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     //Constructor
-    public Hospitalization(Patient patient, Date startDate, Date endDate){
+    public Hospitalization(Patient patient, LocalDate startDate, LocalDate endDate){
         this.patient = patient;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -15,19 +15,22 @@ public class Hospitalization {
     public Patient getPatient(){
         return this.patient;
     }
-    public Date getStartDate(){
+    public LocalDate getStartDate(){
         return this.startDate;
     }
-    public Date getEndDate(){
+    public LocalDate getEndDate(){
         return this.endDate;
     }
     public void setPatient(Patient newPatient){
         this.patient = newPatient;
     }
-    public void setStartDate(Date newStartDate){
+    public void setStartDate(LocalDate newStartDate){
         this.startDate = newStartDate;
     }
-    public void setEndDate(Date newEndDate){
+    public void setEndDate(LocalDate newEndDate){
         this.endDate = newEndDate;
+    }
+    public String toString(){
+        return "Peciente: " + this.getPatient().getName() + " " + this.getPatient().getLastname() + " con DNI: " + this.getPatient().getDni() +  " esta internado desde el " + this.getStartDate();
     }
 }

@@ -1,17 +1,44 @@
 package src.main;
+import java.time.LocalDate;
 import java.util.Scanner;
-import src.models.Patient;
-import src.services.PatientService;
+import src.models.*;
+import src.services.*;
 
 public class Navigation {
     private PatientService patientService;
+    private DoctorService doctorService;
+    private HospitalizacionService hospitalizacionService;
+    private AppointmentService appointmentService;
+    private Scanner scan;
 
     public Navigation(){
         //Constructor
         patientService = new PatientService();
+        doctorService = new DoctorService();
+        hospitalizacionService = new HospitalizacionService();
+        appointmentService = new AppointmentService();
+        scan = new Scanner(System.in);
+    }
+    public void addAppointment(){
+
+        System.out.print("Ingrese la fecha (YYYY-MM-DD): "); // Temporal
+        String birthDateString = scan.nextLine(); // Temporal
+        LocalDate birthDate = LocalDate.parse(birthDateString);
+
+        Patient patient1 = new Patient("41323167", "John", "Doe", "123 Main St", 25); // Temporal
+        Doctor doctor = new Doctor("Doctor name", "Doctor Lastname", "Cardiology", 36061); //Temporal
+        Appointment appointment = new Appointment(patient1, doctor, birthDate);
+        System.out.println(appointment.toString());
+    }
+    public void addHospitalizacion(){
+        Patient patient1 = new Patient("41323167", "John", "Doe", "123 Main St", 25);//Datos Temporales
+        LocalDate startDate = LocalDate.parse("2024-06-16");
+        LocalDate endDate = LocalDate.parse("2024-05-16");
+        Hospitalization hospitalization = new Hospitalization(patient1, startDate, endDate);
+        System.out.println(hospitalization.toString());
     }
     public void addPatient(){
-        Patient patient1 = new Patient("41323167", "John", "Doe", "123 Main St", 25);
+        Patient patient1 = new Patient("41323167", "John", "Doe", "123 Main St", 25);//Datos Temporales
         patientService.addPatient(patient1);
     }
     public void toListPatient(){
@@ -25,18 +52,18 @@ public class Navigation {
         boolean funcionamiento = true;
         while (funcionamiento == true) {
             System.out.println("Menu");
-            System.out.println("1) Dar Turno");
+            System.out.println("1) Dar Turno(avance 1)");
             System.out.println("2) Modificar Turno");
             System.out.println("3) Eliminar Turno");
             System.out.println("4) Listar Turno");
-            System.out.println("5) Agregar Internacion");
+            System.out.println("5) Agregar Internacion(avance 1)");
             System.out.println("6) Modificar Internacion");
             System.out.println("7) Eliminar Internacion");
             System.out.println("8) Listar Internaciones");
             System.out.println("9) Listar Ganancias Turno");
             System.out.println("10) Listar Ganancias Internacion");
-            System.out.println("11) Agregar Paciente");
-            System.out.println("12) Listar Pacientes");
+            System.out.println("11) Agregar Paciente(avance 1)");
+            System.out.println("12) Listar Pacientes(avance 1)");
             System.out.println("0) Salir");
             System.out.println(" ");
 
@@ -44,8 +71,14 @@ public class Navigation {
 
             switch (option) {
                 case 0:
-                    scan.close();
                     funcionamiento = false;
+                    continue;
+                case 1:
+                    addAppointment();
+                    continue;
+                case 5:
+                    addHospitalizacion();
+                    continue;
                 case 11:
                     addPatient();
                     continue;
@@ -56,5 +89,6 @@ public class Navigation {
                     break;
             }
         }
+        scan.close();
     }
 }
