@@ -19,6 +19,7 @@ public class Navigation {
         appointmentService = new AppointmentService();
         scan = new Scanner(System.in);
     }
+    
     public void addAppointment(){
 
         System.out.print("Ingrese la fecha (YYYY-MM-DD): "); // Temporal
@@ -28,15 +29,28 @@ public class Navigation {
         Patient patient1 = new Patient("41323167", "John", "Doe", "123 Main St", 25); // Temporal
         Doctor doctor = new Doctor("Doctor name", "Doctor Lastname", "Cardiology", 36061); //Temporal
         Appointment appointment = new Appointment(patient1, doctor, birthDate);
-        System.out.println(appointment.toString());
+        appointmentService.addAppointment(appointment);
     }
+    public void toListAppointment(){
+        appointmentService.getAllAppointments().forEach(Appointment -> {
+            System.out.println("Turno: " + Appointment.toString());
+        });
+    }
+    
     public void addHospitalizacion(){
         Patient patient1 = new Patient("41323167", "John", "Doe", "123 Main St", 25);//Datos Temporales
         LocalDate startDate = LocalDate.parse("2024-06-16");
         LocalDate endDate = LocalDate.parse("2024-05-16");
-        Hospitalization hospitalization = new Hospitalization(patient1, startDate, endDate);
-        System.out.println(hospitalization.toString());
+        String habitacion = ("Habitacion 1");
+        Hospitalization hospitalization = new Hospitalization(patient1, startDate, endDate, habitacion);
+        hospitalizacionService.addHospitalization(hospitalization);
     }
+    public void toListHospitalizacion(){
+        hospitalizacionService.getAllHospitalizations().forEach(Hospitalization -> {
+        System.out.println("Internacion: " + Hospitalization.toString());
+        });
+    }
+    
     public void addPatient(){
         Patient patient1 = new Patient("41323167", "John", "Doe", "123 Main St", 25);//Datos Temporales
         patientService.addPatient(patient1);
@@ -46,6 +60,17 @@ public class Navigation {
         System.out.println("Patient: " + patient.getName());
         });
     }
+    
+    public void addDoctor(){
+        Doctor doctor = new Doctor("Dr. Raul", "null", "Cardiologia", 0);
+        doctorService.addDoctor(doctor);
+    }
+    public void toListDoctors(){
+        doctorService.getAllDoctor().forEach(doctorService -> {
+            System.out.println("Doctor: " + doctorService.getName());
+        });
+    }
+
     public void display_menu(){
         System.out.println("Bienvenido! ");
         Scanner scan = new Scanner(System.in);
@@ -57,7 +82,7 @@ public class Navigation {
             System.out.println("3) Eliminar Turno");
             System.out.println("4) Listar Turno");
             System.out.println("5) Agregar Internacion(avance 1)");
-            System.out.println("6) Modificar Internacion");
+            System.out.println("6) listar Internacion");
             System.out.println("7) Eliminar Internacion");
             System.out.println("8) Listar Internaciones");
             System.out.println("9) Listar Ganancias Turno");
@@ -78,6 +103,9 @@ public class Navigation {
                     continue;
                 case 5:
                     addHospitalizacion();
+                    continue;
+                case 6:
+                    toListHospitalizacion();
                     continue;
                 case 11:
                     addPatient();

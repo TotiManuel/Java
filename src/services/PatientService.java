@@ -18,3 +18,5 @@ public class PatientService {
         return patientRepository.getAll();
     }
 }
+
+

@@ -5,11 +5,13 @@ public class Hospitalization {
     private Patient patient;
     private LocalDate startDate;
     private LocalDate endDate;
+    private String habitacion;
     //Constructor
-    public Hospitalization(Patient patient, LocalDate startDate, LocalDate endDate){
+    public Hospitalization(Patient patient, LocalDate startDate, LocalDate endDate, String habitacion){
         this.patient = patient;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.habitacion = habitacion;
     }
     //SettersAndGetters
     public Patient getPatient(){
@@ -21,6 +23,9 @@ public class Hospitalization {
     public LocalDate getEndDate(){
         return this.endDate;
     }
+    public String getHabitacion(){
+        return this.habitacion;
+    }
     public void setPatient(Patient newPatient){
         this.patient = newPatient;
     }
@@ -31,6 +36,7 @@ public class Hospitalization {
         this.endDate = newEndDate;
     }
     public String toString(){
-        return "Peciente: " + this.getPatient().getName() + " " + this.getPatient().getLastname() + " con DNI: " + this.getPatient().getDni() +  " esta internado desde el " + this.getStartDate();
+        return "Peciente: " + this.getPatient().getName() + " " + this.getPatient().getLastname() + " con DNI: " + this.getPatient().getDni() +  " esta internado desde el " + this.getStartDate() + " " + this.habitacion;
     }
 }
+
